@@ -36,10 +36,11 @@ class NonEmptySet(elem: Int, left: IntSet, right: IntSet) extends IntSet {
 	override def toString = "{" + left + elem + right + "}"
 }
 
-// output
+/* output
 {#3#}
 {#3{#4#}}
 {{#2#}3{#4#}}
 true
 false
 true
+*/
