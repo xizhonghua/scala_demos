@@ -1,6 +1,6 @@
 object Main extends App {
 	override def main(args: Array[String]) = {
-		def a = new NonEmptySet(3, new EmptySet, new EmptySet)
+		def a = new NonEmptySet(3, EmptySet, EmptySet)
 		def b = a incl 4
 		def c = b incl 2
 		println(a)
@@ -18,8 +18,9 @@ abstract class IntSet {
 	def contains(x : Int) : Boolean
 }
 
-class EmptySet extends IntSet {
-	def incl(x: Int): IntSet = new NonEmptySet(x, new EmptySet, new EmptySet);
+// singleton object
+object EmptySet extends IntSet {
+	def incl(x: Int): IntSet = new NonEmptySet(x, EmptySet, EmptySet);
 	def contains(x: Int): Boolean = false
 	override def toString = "#"
 }
