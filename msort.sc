@@ -1,14 +1,11 @@
 package week5
 
 object msorts {
-  def merge(xs: List[Int], ys: List[Int]): List[Int] = xs match {
-    case Nil => ys
-    case x :: xt => ys match {
-      case Nil => xs
-      case y :: yt =>
-        if (x <= y) x::merge(xt, ys)
-        else y::merge(xs, yt)
-    }
+  def merge(xs: List[Int], ys: List[Int]): List[Int] = (xs, ys) match {
+    case (Nil, ys) => ys
+    case (xs, Nil) => xs
+    case (x::xt, y::yt) =>
+      if(x<=y) x::merge(xt, ys) else y::merge(xs, yt)
   }                                               //> merge: (xs: List[Int], ys: List[Int])List[Int]
   
   def msort(xs: List[Int]): List[Int] = {
