@@ -4,7 +4,7 @@ object nqueens {
   def queens(n: Int): Set[List[Int]] = {
     def isSafe(col: Int, queens: List[Int]): Boolean = {
       val row = queens.length
-      var qs = (row -1 to 0 by -1) zip queens
+      var qs = (0 until row) zip queens.reverse
       qs forall {
         case (r, c) => col != c && math.abs(col - c) != row - r
       }
